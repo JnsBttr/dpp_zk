@@ -72,8 +72,8 @@ circuits/
 
 ```mermaid
 graph TD
-    A[Input JSON] --> B[Generate Witness (WASM)]
-    B --> C[Generate Proof (snarkjs prove)]
+    A[Input JSON] --> B[Generate Witness -WASM]
+    B --> C[Generate Proof -snarkjs prove]
     C --> D[Create Proof JSON + Public JSON]
     D --> E[Verifier Smart Contract]
     E --> F[On-chain or Local Verification]
