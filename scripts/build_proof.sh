@@ -36,13 +36,13 @@ echo "✅ Powersoftau vorbereiten (prepare phase2)..."
 snarkjs powersoftau prepare phase2 "$BUILD_DIR/pot12_0001.ptau" "$BUILD_DIR/pot12_final.ptau"
 
 echo "✅ ZKey erzeugen (groth16 setup)..."
-snarkjs groth16 setup "$BUILD_DIR/$CIRCUIT_NAME.r1cs" "$BUILD_DIR/pot12_final.ptau" "$BUILD_DIR/$CIRCUIT_NAME_0000.zkey"
+snarkjs groth16 setup "$BUILD_DIR/$CIRCUIT_NAME.r1cs" "$BUILD_DIR/pot12_final.ptau" "$BUILD_DIR/${CIRCUIT_NAME}_0000.zkey"
 
 echo "✅ ZKey contribution..."
-snarkjs zkey contribute "$BUILD_DIR/$CIRCUIT_NAME_0000.zkey" "$BUILD_DIR/$CIRCUIT_NAME_final.zkey" --name="1st Contributor" -v
+snarkjs zkey contribute "$BUILD_DIR/${CIRCUIT_NAME}_0000.zkey" "$BUILD_DIR/${CIRCUIT_NAME}_final.zkey" --name="1st Contributor" -v
 
 echo "✅ Solidity Verifier generieren..."
-snarkjs zkey export solidityverifier "$BUILD_DIR/$CIRCUIT_NAME_final.zkey" "$BUILD_DIR/Verifier.sol"
+snarkjs zkey export solidityverifier "$BUILD_DIR/${CIRCUIT_NAME}_final.zkey" "$BUILD_DIR/Verifier.sol"
 
 echo "🎉 Proof Build abgeschlossen. Verifier.sol ist bereit in $BUILD_DIR"
 echo "📜 Bitte die README.md Datei für weitere Anweisungen lesen."
