@@ -44,5 +44,8 @@ snarkjs zkey contribute "$BUILD_DIR/${CIRCUIT_NAME}_0000.zkey" "$BUILD_DIR/${CIR
 echo "✅ Solidity Verifier generieren..."
 snarkjs zkey export solidityverifier "$BUILD_DIR/${CIRCUIT_NAME}_final.zkey" "$BUILD_DIR/Verifier.sol"
 
+echo "✅ Verification Key generieren..."
+snarkjs zkey export verificationkey "$BUILD_DIR/${CIRCUIT_NAME}_final.zkey" "$BUILD_DIR/verification_key.json"
+
 echo "🎉 Proof Build abgeschlossen. Verifier.sol ist bereit in $BUILD_DIR"
 echo "📜 Bitte die README.md Datei für weitere Anweisungen lesen."
