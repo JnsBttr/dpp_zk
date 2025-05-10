@@ -26,11 +26,7 @@ contract ProductProofManager is OwnableUpgradeable, UUPSUpgradeable {
         verifier = IVerifier(verifierAddress);
     }
 
-    function submitProof(
-        uint256 productId,
-        uint256[] calldata publicInputs,
-        bytes calldata proof
-    ) external {
+    function submitProof(uint256 productId, uint256[] calldata publicInputs, bytes calldata proof) external {
         require(verifier.verifyProof(proof, publicInputs), "Invalid proof");
 
         productProofs[productId] = ProductProof({

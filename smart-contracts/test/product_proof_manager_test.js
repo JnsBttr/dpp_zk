@@ -6,7 +6,7 @@ describe("ProductProofManager", function () {
 
   beforeEach(async function () {
     [owner] = await ethers.getSigners();
-
+    
     const Verifier = await ethers.getContractFactory("Verifier");
     verifier = await Verifier.deploy();
 
@@ -15,7 +15,7 @@ describe("ProductProofManager", function () {
     await productProofManager.waitForDeployment();
   });
 
-  it("should successfully submit and verify a proof", async function () {
+  it("should submit and store proof correctly", async function () {
     const productId = 1;
     const publicInputs = [123, 456];
     const proof = ethers.encodeBytes32String("dummyProof");
